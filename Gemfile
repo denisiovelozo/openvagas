@@ -20,10 +20,12 @@ gem 'devise'
 gem 'haml'
 gem "haml-rails", "~> 2.0"
 
-#gem 'kaminari'
-#gem 'bootstrap4-kaminari-views'
-#gem 'ransack'
+gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
+gem 'ransack'
 #gem 'select2-rails'
+gem 'rubyzip'
+gem 'redis'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -48,3 +50,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "sidekiq", "~> 7.1"

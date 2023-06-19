@@ -11,7 +11,12 @@
   %body
     = render 'shared/topbar'
     %main.container{:role => "main"}
+      = render partial: 'shared/flash_message'
       = yield
     %footer
       %p Sistema desenvolvido por Programador Denisio Velozo
       %p= "Desde de #{Time.new.year}"
+
+      #modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+        .modal-dialog.modal-lg
+          .modal-content

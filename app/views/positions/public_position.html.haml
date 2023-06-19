@@ -1,0 +1,19 @@
+%h2= "#{@position.name} - #{@position.company.name}"
+%p= "#{career_name(@position.career)} - #{@position.city} / #{modality(@position)}, #{@position.state} - #{contract_name(@position.contract)}"
+
+= @position.description
+
+%br/
+%h5 Compartilhar
+= render partial: 'shared/social_network', locals: {position: @position}
+
+.wrapper-form-applicant
+  - if user_signed_in?
+    - if UserApplicantQuery.new(current_user.id, @position.id).call
+      %p= "Você já aplicou para essa vaga"
+    - else
+      %p= "Insira suas informações abaixo para se candidatar á vaga de #{@position.name}"
+      = render 'applicants/form'
+  - else
+    %p Você precisa estár logado para se candidatar
+
